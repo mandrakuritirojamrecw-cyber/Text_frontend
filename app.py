@@ -1,7 +1,7 @@
 import gradio as gr
 import requests
 
-API_URL = "http://127.0.0.1:8000/translate"
+API_URL = "https://text-backend-mr70.onrender.com"
 
 languages = [
     "auto",
