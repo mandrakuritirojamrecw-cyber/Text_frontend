@@ -28,10 +28,10 @@ def translate(text, source, target):
 
     response = requests.post(API_URL, json=data)
 
-if response.status_code == 200:
-    return response.json()["translated"]
-else:
-    return f"Error {response.status_code}: {response.text}"
+    if response.status_code == 200:
+        return response.json()["translated"]
+    else:
+        return f"Error {response.status_code}: {response.text}"
 
 demo = gr.Interface(
     fn=translate,
