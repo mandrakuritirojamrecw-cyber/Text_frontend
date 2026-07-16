@@ -1,7 +1,7 @@
 import gradio as gr
 import requests
 
-API_URL = "https://text-backend-mr70.onrender.com"
+API_URL = "https://text-backend-mr70.onrender.com/translate"
 
 languages = [
     "auto",
@@ -28,10 +28,10 @@ def translate(text, source, target):
 
     response = requests.post(API_URL, json=data)
 
-    if response.status_code == 200:
-        return response.json()["translated"]
-    else:
-        return "Translation Failed"
+if response.status_code == 200:
+    return response.json()["translated"]
+else:
+    return f"Error {response.status_code}: {response.text}"
 
 demo = gr.Interface(
     fn=translate,
